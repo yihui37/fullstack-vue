@@ -1,24 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img src="./assets/logo.png">
+    <div>
+      <h1>LESSON 2 自己写一个el-form</h1>
+      <demoForm></demoForm>
+      <myForm></myForm>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import demoForm from "./components/DemoForm.vue";
+import myForm from "./components/MyForm.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    demoForm,
+    myForm
+  },
+  data() {
+    return {
+      formInline: {
+        user: "",
+        region: ""
+      }
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
