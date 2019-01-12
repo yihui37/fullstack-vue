@@ -28,6 +28,7 @@ export default {
       // eslint-disable-next-line no-console
       console.log("input blur", this.inputValue);
 
+      this.$emit("input", this.inputValue);
       // 通知父组件校验
       // tip: 不自己校验是因为
       // form整体校验的时候，并不一定就是input，还可能会是复杂组件
@@ -38,6 +39,7 @@ export default {
       // 因为input以插槽的形式插入formitem中，并不能直接$emit
 
       // 方法二：当用户不按预定方式编写代码时，$parent不是formitem,因此不完善
+      // eslint-disable-next-line no-debugger
       this.$parent.$emit("validate", this.inputValue);
     }
   }

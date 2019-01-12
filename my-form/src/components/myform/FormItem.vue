@@ -11,15 +11,7 @@ import schema from "async-validator";
 export default {
   name: "my-form-item",
   inject: ["form"], // 注入form，获取model和rules
-  props: {
-    label: {
-      type: String,
-      default: ""
-    },
-    prop: {
-      type: String
-    }
-  },
+  props: ["label", "prop"],
   data() {
     return {
       errormsg: "",
@@ -38,6 +30,7 @@ export default {
     validate() {
       // promise作用为 在整体校验时提供状态
       return new Promise(res => {
+        // eslint-disable-next-line no-debugger
         // 校验规则
         const descriptor = {
           // 此处this.form为父组件provider提供
@@ -47,6 +40,9 @@ export default {
         // 执行校验
         // 校验参数 param
         // { prop : propValue}  propValue由父组件的provider
+        // eslint-disable-next-line no-console
+        console.log({ [this.prop]: this.form.model[this.prop] });
+
         validator.validate(
           { [this.prop]: this.form.model[this.prop] },
           errors => {
