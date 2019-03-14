@@ -7,13 +7,13 @@
 </template>
 <script>
 export default {
+  name: "my-form",
   provide() {
     return {
       // 将表单实例传递给后代
       form: this
     };
   },
-  name: "my-form",
   props: {
     model: {
       type: Object,
