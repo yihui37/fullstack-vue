@@ -1,0 +1,24 @@
+<p>首页啦啦啦</p>
+
+{{!-- 1.注释 --}}
+
+{{!-- 2.插值绑定 --}}
+<h1>{{subTitle}}</h1>
+
+{{!-- 3.html --}}
+<p>{{{htmlStr}}}</p>
+
+{{!-- 4.条件语句 --}}
+{{!-- 前面加# 表示块命令 必须关闭/ --}}
+{{#if isShow}}
+<p>{{username}},欢迎</p>
+{{else}}
+<a href="">请登录</a>
+{{/if}}
+
+{{!-- 5.循环 --}}
+<ul>
+    {{#each users}}
+    <li>{{username}} - {{date birthday 'YYYY/MM/DD'}}</li>
+    {{/each}}
+</ul>
